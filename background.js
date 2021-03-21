@@ -16,24 +16,25 @@ loadRingIfNecessary();
 function defaultPrefs() {
   return {
     siteList: [
-      'facebook.com',
-      'youtube.com',
-      'twitter.com',
-      'tumblr.com',
-      'pinterest.com',
-      'myspace.com',
-      'livejournal.com',
-      'digg.com',
-      'stumbleupon.com',
-      'reddit.com',
-      'kongregate.com',
-      'newgrounds.com',
-      'addictinggames.com',
-      'hulu.com'
+      // 'facebook.com',
+      // 'youtube.com',
+      // 'twitter.com',
+      // 'tumblr.com',
+      // 'pinterest.com',
+      // 'myspace.com',
+      // 'livejournal.com',
+      // 'digg.com',
+      // 'stumbleupon.com',
+      // 'reddit.com',
+      // 'kongregate.com',
+      // 'newgrounds.com',
+      // 'addictinggames.com',
+      // 'hulu.com'
+      'loom.com'
     ],
     durations: { // in seconds
-      work: 25 * 60,
-      break: 5 * 60
+      work: 1 * 10,
+      break: 1 * 10
     },
     shouldRing: true,
     clickRestarts: false,
@@ -257,13 +258,13 @@ function isLocationBlocked(location) {
     if(locationsMatch(location, listedPattern)) {
       // If we're in a whitelist, a matched location is not blocked => false
       // If we're in a blacklist, a matched location is blocked => true
-      return !PREFS.whitelist;
+      return PREFS.whitelist;
     }
   }
   
   // If we're in a whitelist, an unmatched location is blocked => true
   // If we're in a blacklist, an unmatched location is not blocked => false
-  return PREFS.whitelist;
+  return !PREFS.whitelist;
 }
 
 function executeInTabIfBlocked(action, tab) {
